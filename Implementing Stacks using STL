@@ -1,0 +1,19 @@
+package Stacks;
+import java.util.*;
+public class copy_move {
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        System.out.println("Enter the Number of elements you want to enter in the Stack: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i =1;
+        while(i<= n ){
+            System.out.print("Data: ");
+            int d = sc.nextInt();
+            st.push(d);
+            i++;
+        }
+        System.out.println();
+        System.out.println(st);
+    }
+}
