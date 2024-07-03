@@ -1,0 +1,32 @@
+package Stacks;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Printing_BottomToTop {
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        System.out.println("Enter the Number of elements you want to enter in the Stack: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = 1;
+        System.out.print("Data: ");
+        while (i <= n) {
+            int d = sc.nextInt();
+            st.push(d);
+            i++;
+        }
+        System.out.println();
+        System.out.println("Original Stack: " + st);
+        Stack<Integer> rt = new Stack<>();
+        while(st.size() > 0)
+        {
+            rt.push(st.pop());
+        }
+        System.out.println("Printing Stack bottom to top: " + rt);
+        while(rt.size() > 0)
+        {
+            st.push(rt.pop());
+        }
+    }
+}
