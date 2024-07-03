@@ -1,0 +1,37 @@
+package Stacks;
+
+import java.util.*;
+public class InsertatEnd {
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        System.out.println("Enter the Number of elements you want to enter in the Stack: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = 1;
+        while (i <= n) {
+            System.out.print("Data: ");
+            int d = sc.nextInt();
+            st.push(d);
+            i++;
+        }
+        System.out.println();
+        System.out.println("Original Stack: " + st);
+        System.out.println("Enter the element you want to insert at the end: ");
+        int newelement  = sc.nextInt();
+        Stack<Integer> rt = new Stack<>();
+        while(st.size() > 0){
+            rt.push(st.pop());
+        }
+        System.out.println();
+        System.out.println("Original Stack: " + st);
+        System.out.println("Our original Stack is now empty");
+        System.out.println("New Stack: " + rt);
+        st.push(newelement);
+        while(rt.size()>0){
+            st.push(rt.pop());
+        }
+        System.out.println();
+        System.out.println("Original Stack: " + st);
+        System.out.println("New Stack is now empty: " + rt);
+    }
+}
