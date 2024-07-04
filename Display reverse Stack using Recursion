@@ -1,0 +1,31 @@
+package Stacks;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ReverseDisplayRecursively {
+    public static void display(Stack<Integer> s) {
+        if (s.size() <= 0) {
+            return;
+        }
+        int x = s.pop();
+        System.out.print(x + " ");
+        display(s);
+        s.push(x);
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        System.out.println("Enter the Number of elements you want to enter in the Stack: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = 1;
+        System.out.print("Data: ");
+        while (i <= n) {
+            int d = sc.nextInt();
+            st.push(d);
+            i++;
+        }
+        display(st);
+    }
+}
