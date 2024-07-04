@@ -1,0 +1,30 @@
+package Stacks;
+import java.util.*;
+public class DeleteAtNthIndex {
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        System.out.println("Enter the Number of elements you want to enter in the Stack: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = 1;
+        System.out.print("Data: ");
+        while (i <= n) {
+            int d = sc.nextInt();
+            st.push(d);
+            i++;
+        }
+        System.out.println("Original Stack: " + st);
+        Stack<Integer> rt = new Stack<>();
+        System.out.println("Enter the index you want to delete the data from: ");
+        int index = sc.nextInt();
+        while(st.size()-1 > index)
+        {
+            rt.push(st.pop());
+        }
+        st.pop();
+        while(rt.size()>0){
+            st.push(rt.pop());
+        }
+        System.out.println("Original Stack: " + st);
+    }
+}
