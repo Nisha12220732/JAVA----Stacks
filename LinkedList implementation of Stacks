@@ -1,0 +1,104 @@
+package Stacks;
+
+public class LinkedList_Implementation_Of_Stacks {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int d){
+            this.data = d;
+            next = null;
+        }
+    }
+    public static class Stack{
+        Node head = null;
+        int size;
+        void push(int d){
+            Node temp = new Node(d);
+            temp.next = head;
+            head = temp;
+            size++;
+            return;
+        }
+        int pop(){
+            if(head == null){
+                System.out.println("Can't pop, Stack is empty!!");
+                return -1;
+            }
+            int temp = head.data;
+            head = head.next;
+            size--;
+            return temp;
+        }
+        int peek(){
+            if(head == null){
+                System.out.println("Can't peek, Stack is empty!!");
+                return -1;
+            }
+            return head.data;
+        }
+        int size(){
+            return size;
+        }
+        boolean isEmpty(){
+            return head == null;
+        }
+        void reversedisplay(){
+            if(head == null){
+                return;
+            }
+            Node temp = head;
+            while(temp != null){
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
+            System.out.println();
+            return;
+
+        }
+        void display(Node temp){
+            if(temp == null) {
+                return;
+            }
+            display(temp.next);
+            System.out.print(temp.data + " ");
+        }
+    }
+    public static void main(String[] args) {
+    Stack st = new Stack();
+    System.out.println(st.isEmpty());
+    System.out.println(st.pop());
+    System.out.println(st.peek());
+    st.push(3);
+    st.push(5);
+    st.push(7);
+    st.push(9);
+    st.push(10);
+    st.push(56);
+    st.display(st.head);
+    System.out.println();
+    st.reversedisplay();
+    st.pop();
+    st.display(st.head);
+    System.out.println();
+    System.out.println(st.size());
+    System.out.println(st.peek());
+    System.out.println(st.pop());
+    st.display(st.head);
+    System.out.println();
+    st.reversedisplay();
+    System.out.println(st.peek());
+    System.out.println(st.size());
+    System.out.println(st.isEmpty());
+    System.out.println(st.pop());
+    System.out.println(st.pop());
+    st.display(st.head);
+    System.out.println();
+    st.reversedisplay();
+    st.push(72);
+    st.pop();
+    st.push(45);
+    st.display(st.head);
+    System.out.println();
+    st.reversedisplay();
+    }
+}
