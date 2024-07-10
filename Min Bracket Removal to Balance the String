@@ -1,0 +1,26 @@
+package Stacks_Questions;
+import java.util.*;
+public class Balanced_Brackets {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        Stack<Character> st = new Stack<>();
+        st.push(str.charAt(0));
+        for (int i = 1; i < str.length(); i++) {
+            if (st.isEmpty()) {
+                st.push(str.charAt(i));
+            } else if ((st.peek() == '(' && str.charAt(i) == ')') || (st.peek() == '[' && str.charAt(i) == ']') || (st.peek() == '{' && str.charAt(i) == '}')) {
+                st.pop();
+            } else {
+                st.push(str.charAt(i));
+            }
+        }
+        if (st.isEmpty())
+            System.out.println("True String");
+        else {
+            System.out.println(st);
+            System.out.println("Not a True String");
+            System.out.println("Minimum number of elements need to make the Brackets balanced: " + st.size());
+        }
+    }
+}
