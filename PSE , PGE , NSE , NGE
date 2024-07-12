@@ -1,0 +1,72 @@
+package Stacks;
+
+import java.util.Stack;
+
+public class practice {
+    public static void main(String[] args) {
+       int[] arr = {1,5,3,2,6,3,1};
+       int[] pge = new int[arr.length];
+       int[] pse = new int[arr.length];
+       int[] nge = new int[arr.length];
+       int[] nse = new int[arr.length];
+       Stack<Integer> st = new Stack<>();
+       for(int i=0;i<arr.length;i++){
+           while(!st.isEmpty() && st.peek() < arr[i]){
+               st.pop();
+           }
+           if(st.isEmpty()){
+               pge[i] = -1;
+           }
+           else{
+               pge[i] = st.peek();
+           }
+           st.push(arr[i]);
+       }
+        System.out.print("Original Array: " );
+       for(int i: arr){
+           System.out.print(i + " ");
+       }
+        System.out.println();
+        System.out.print("Previous Greatest Element Array: " );
+        for(int i: pge){
+            System.out.print(i + " ");
+        }
+        while(!st.isEmpty()) st.pop();
+        for(int i=0;i< arr.length;i++){
+            while(!st.isEmpty() && st.peek() >= arr[i]) st.pop();
+            if(st.isEmpty()) pse[i] = -1;
+            else pse[i] = st.peek();
+            st.push(arr[i]);
+        }
+        System.out.println();
+        System.out.print("Previous Smallest Element Array: " );
+        for(int i: pse){
+            System.out.print(i + " ");
+        }
+        while(!st.isEmpty()) st.pop();
+        for(int i = arr.length -1;i >=0 ;i--){
+            while(!st.isEmpty() && st.peek() >= arr[i]) st.pop();
+            if(st.isEmpty()) nse[i] = -1;
+            else nse[i] = st.peek();
+            st.push(arr[i]);
+        }
+        System.out.println();
+        System.out.print("Next Smallest Element Array: " );
+        for(int i: nse){
+            System.out.print(i + " ");
+        }
+        while(!st.isEmpty()) st.pop();
+        for(int i = arr.length -1;i>=0;i--){
+            while(!st.isEmpty() && st.peek() <= arr[i]) st.pop();
+            if(st.isEmpty()) nge[i] = -1;
+            else nge[i] = st.peek();
+            st.push(arr[i]);
+        }
+        System.out.println();
+        System.out.print("Next Greatest Element Array: " );
+        for(int i: nge){
+            System.out.print(i + " ");
+        }
+        while(!st.isEmpty()) st.pop();
+    }
+}
