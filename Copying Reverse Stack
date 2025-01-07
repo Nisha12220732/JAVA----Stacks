@@ -1,0 +1,26 @@
+package Stacks;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Shifting_One_StackToAnother {
+    public static void main(String[] args) {
+        Stack<Integer> st = new Stack<>();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of your stack: ");
+        int n = sc.nextInt();
+        System.out.println("Enter the elements: ");
+        for(int i =0;i<n;i++){
+            int y = sc.nextInt();
+            st.push(y);
+        }
+        System.out.println("Stack " +  st);
+        Stack st2 = new Stack();
+        while(!st.isEmpty()){
+            st2.push(st.peek());
+            st.pop();
+        }
+        System.out.println("Stack " +  st2);
+
+    }
+}
